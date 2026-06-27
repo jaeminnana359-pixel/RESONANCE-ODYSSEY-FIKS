@@ -4696,7 +4696,7 @@
                 return;
             }
 
-            const isNTT = state.idx === 1;
+            const isNTT = cityData[state.idx] && cityData[state.idx].name === 'Nusa Tenggara Timur';
             let desc1Text = isNTT ? `Sasando adalah alat musik petik dengan rangka bambu berbentuk tabung dan daun lontar melingkar seperti bunga sebagai resonator. Dawai logam dipetik menghasilkan getaran yang diperkuat oleh daun lontar. Secara fisika melibatkan getaran senar, frekuensi fundamental, harmonik, dan resonansi. Frekuensi dominan ±130-1.500 Hz, dengan intensitas sekitar 60-75 dB (sedang) (Kemdikbud RI, 2019; BPCB NTT, 2026).` : quiz1.q;
             let desc1HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><img src="https://raw.githubusercontent.com/aliyadewirahmawati-ui/RO-JUNE/767ef518a0d3ef0b2308eec94259bd40f9d32f83/ALAT%20MUSIK%20DI%20GAME%20(1).png" alt="Alat Musik" style="width:220px;height:220px;object-fit:contain;border-radius:12px;"/><div style="font-size:14px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc1Text}</div></div>`;
             let desc2HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><img src="https://raw.githubusercontent.com/aliyadewirahmawati-ui/RO-JUNE/767ef518a0d3ef0b2308eec94259bd40f9d32f83/ALAT%20MUSIK%20DI%20GAME%20(1).png" alt="Alat Musik" style="width:220px;height:220px;object-fit:contain;border-radius:12px;"/><div style="font-size:14px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${quiz2.q}</div></div>`;
