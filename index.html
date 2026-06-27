@@ -4706,12 +4706,26 @@ Seorang siswa menyatakan:
             let desc2HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><img src="https://raw.githubusercontent.com/aliyadewirahmawati-ui/RO-JUNE/767ef518a0d3ef0b2308eec94259bd40f9d32f83/ALAT%20MUSIK%20DI%20GAME%20(1).png" alt="Alat Musik" style="width:220px;height:220px;object-fit:contain;border-radius:12px;"/><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc2Text}</div></div>`;
             const currentRegionName = state.idx > 0 ? cityData[state.idx].name : 'Angklung';
             const overlayTitle = `Kartu ${currentRegionName}`;
-            let card3HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:14px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${quiz1.q}</div></div>`;
-            let card4HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:14px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${quiz2.q}</div></div>`;
-            let card3Options = quiz1.a;
-            let card3Correct = quiz1.correct;
-            let card4Options = quiz2.a;
-            let card4Correct = quiz2.correct;
+            
+            let card3HTML, card4HTML, card3Options, card3Correct, card4Options, card4Correct;
+            
+            if (isNTT) {
+                card3HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Perbandingan frekuensi bunyi sasando A dan B (f1 : f2) adalah …</div></div>`;
+                card3Options = ['2 : 1', '1 : 2', '4 : 1', '1 : 4', '1 : 1'];
+                card3Correct = 0; // A. 2 : 1
+                
+                card4HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">Pernyataan siswa tersebut adalah …</div></div>`;
+                card4Options = ['benar, karena panjang dawai menentukan frekuensi', 'benar, karena resonator memengaruhi frekuensi', 'salah, karena perbedaan frekuensi disebabkan oleh tegangan dawai', 'salah, karena amplitudo menentukan frekuensi', 'salah, karena cara memetik menentukan frekuensi'];
+                card4Correct = 2; // C. salah, karena perbedaan frekuensi disebabkan oleh tegangan dawai
+            } else {
+                card3HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${quiz1.q}</div></div>`;
+                card3Options = quiz1.a;
+                card3Correct = quiz1.correct;
+                
+                card4HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:10px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${quiz2.q}</div></div>`;
+                card4Options = quiz2.a;
+                card4Correct = quiz2.correct;
+            }
 
             const card1Title = isNTT ? '<strong style="font-size: 10px;">Sasando</strong>' : 'Deskripsi 1';
             const card2Title = isNTT ? '<strong style="font-size: 10px;">Sasando: Control of Variables</strong>' : 'Deskripsi 2';
@@ -4720,8 +4734,10 @@ Seorang siswa menyatakan:
             document.getElementById('quiz-cards-title').innerText = overlayTitle;
 
             // Set card 3 and 4 titles
-            document.querySelector('#card-3 .card-title').innerText = 'Soal 1';
-            document.querySelector('#card-4 .card-title').innerText = 'Soal 2';
+            const card3Title = isNTT ? '<strong style="font-size: 10px;">Sasando Tier 1: Control of Variables</strong>' : 'Soal 1';
+            const card4Title = isNTT ? '<strong style="font-size: 10px;">Sasando Tier 2: Control of Variables</strong>' : 'Soal 2';
+            document.querySelector('#card-3 .card-title').innerHTML = card3Title;
+            document.querySelector('#card-4 .card-title').innerHTML = card4Title;
 
             document.getElementById('desc-1').innerHTML = desc1HTML;
             document.getElementById('desc-2').innerHTML = desc2HTML;
