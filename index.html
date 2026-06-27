@@ -4698,8 +4698,12 @@
 
             const isNTT = cityData[state.idx] && cityData[state.idx].name === 'Nusa Tenggara Timur';
             let desc1Text = isNTT ? `Sasando adalah alat musik petik dengan rangka bambu berbentuk tabung dan daun lontar melingkar seperti bunga sebagai resonator. Dawai logam dipetik menghasilkan getaran yang diperkuat oleh daun lontar. Secara fisika melibatkan getaran senar, frekuensi fundamental, harmonik, dan resonansi. Frekuensi dominan ±130-1.500 Hz, dengan intensitas sekitar 60-75 dB (sedang) (Kemdikbud RI, 2019; BPCB NTT, 2026).` : quiz1.q;
+            let desc2Text = isNTT ? `Dalam latihan musik tradisional, dua siswa memainkan sasando 1 dan sasando 2. Kedua sasando terbuat dari bahan yang sama sehingga memiliki panjang dawai yang sama, massa jenis linear yang sama, tetapi tegangan dawainya berbeda. Tegangan dawai pada sasando 1 lebih besar dibandingkan sasando 2. 
+
+Seorang siswa menyatakan:
+"Perbedaan frekuensi bunyi kedua sasando ini disebabkan oleh perbedaan panjang dawai."` : quiz2.q;
             let desc1HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><img src="https://raw.githubusercontent.com/aliyadewirahmawati-ui/RO-JUNE/767ef518a0d3ef0b2308eec94259bd40f9d32f83/ALAT%20MUSIK%20DI%20GAME%20(1).png" alt="Alat Musik" style="width:220px;height:220px;object-fit:contain;border-radius:12px;"/><div style="font-size:14px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc1Text}</div></div>`;
-            let desc2HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><img src="https://raw.githubusercontent.com/aliyadewirahmawati-ui/RO-JUNE/767ef518a0d3ef0b2308eec94259bd40f9d32f83/ALAT%20MUSIK%20DI%20GAME%20(1).png" alt="Alat Musik" style="width:220px;height:220px;object-fit:contain;border-radius:12px;"/><div style="font-size:14px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${quiz2.q}</div></div>`;
+            let desc2HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><img src="https://raw.githubusercontent.com/aliyadewirahmawati-ui/RO-JUNE/767ef518a0d3ef0b2308eec94259bd40f9d32f83/ALAT%20MUSIK%20DI%20GAME%20(1).png" alt="Alat Musik" style="width:220px;height:220px;object-fit:contain;border-radius:12px;"/><div style="font-size:14px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${desc2Text}</div></div>`;
             const currentRegionName = state.idx > 0 ? cityData[state.idx].name : 'Angklung';
             const overlayTitle = `Kartu ${currentRegionName}`;
             let card3HTML = `<div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;"><div style="font-size:14px;line-height:1.5;text-align:justify;width:100%;padding:0 20px 0 0;">${quiz1.q}</div></div>`;
@@ -4710,8 +4714,9 @@
             let card4Correct = quiz2.correct;
 
             const card1Title = isNTT ? '<strong>Sasando</strong>' : 'Deskripsi 1';
+            const card2Title = isNTT ? '<strong>Sasando: Control of Variables</strong>' : 'Deskripsi 2';
             document.querySelector('#card-1 .card-title').innerHTML = card1Title;
-            document.querySelector('#card-2 .card-title').innerText = 'Deskripsi 2';
+            document.querySelector('#card-2 .card-title').innerHTML = card2Title;
             document.getElementById('quiz-cards-title').innerText = overlayTitle;
 
             // Set card 3 and 4 titles
